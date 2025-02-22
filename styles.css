@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #111;
+  color: white;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  position: absolute;
+  font-size: 8vw;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1); 
+  color: white;
+  z-index: 2; 
+  text-align: center;
+  transition: color 0.5s ease, -webkit-text-stroke 0.5s ease;
+  pointer-events: none; 
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 50px;
+  z-index: 1;
+}
+
+
+.container .gallery .item {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  transition: transform 0.5s ease, filter 0.5s ease;
+  z-index: 1;
+}
+
+
+.container .gallery .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.container .gallery .item .overlay {
+  position: absolute;
+  bottom: -20%;
+  right: 0px;
+  text-align: end;
+  opacity: 0;
+  margin-right: -160px;
+  transition: opacity 0.1s ease, transform 0.1s ease;
+}
+
+.item .overlay h1 {
+  font-size: 50px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.item .overlay p {
+  margin-top: -40px;
+  text-align: start;
+  font-size: 16px;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none; 
+  overflow: hidden; 
+  opacity: 0; 
+  transition: opacity 0.5s ease;
+}
+
+.box svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.box line {
+  stroke: rgba(255, 255, 255, 0.3); 
+  stroke-width: 2;
+}
+
+
+.container .gallery .item:hover {
+  transform: scale(1.1);
+  z-index: 10;
+  background: #111; 
+  border: none; 
+}
+
+.container .gallery .item:hover .box {
+  opacity: 0; 
+  z-index: 1;
+}
+
+.container .gallery .item:hover .overlay {
+  opacity: 1;
+  transform: translateY(-20px);
+}
+
+
+.container .gallery:hover .item:not(:hover) .box {
+  opacity: 1;
+  z-index: 1; 
+}
+
+
+.title.dimmed {
+  color: rgba(0, 0, 0, 0);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1); 
+}
