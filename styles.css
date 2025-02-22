@@ -24,7 +24,7 @@ body {
 
 .title {
   position: absolute;
-  font-size: 8vw;
+  font-size: 7vw;
   font-weight: 900;
   line-height: 1.1;
   text-transform: uppercase;
@@ -40,15 +40,16 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 50px;
+  column-gap: 150px;
+  row-gap: 50px;
   z-index: 1;
 }
 
 
 .container .gallery .item {
   position: relative;
-  width: 500px;
-  height: 300px;
+  width: 400px;
+  height: 250px;
   overflow: visible;
   border: 1px solid rgba(255, 255, 255, 0.1); 
   transition: transform 0.5s ease, filter 0.5s ease;
@@ -65,22 +66,21 @@ body {
 
 .container .gallery .item .overlay {
   position: absolute;
-  bottom: -20%;
+  bottom: -22%;
   right: 0px;
-  text-align: end;
   opacity: 0;
-  margin-right: -160px;
+  margin-right: -150px;
   transition: opacity 0.1s ease, transform 0.1s ease;
 }
 
 .item .overlay h1 {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 900;
   text-transform: uppercase;
 }
 
 .item .overlay p {
-  margin-top: -40px;
+  margin-top: -30px;
   text-align: start;
   font-size: 16px;
 }
